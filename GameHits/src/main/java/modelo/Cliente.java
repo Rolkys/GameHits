@@ -1,11 +1,11 @@
 package modelo;
 
 public class Cliente extends Persona {
-    protected int puntos;
+    protected int gamePoints;
 
     public Cliente() {
         super();
-        puntos = 0;
+        gamePoints = 0;
     }
 
     public Cliente(String dni) {
@@ -13,16 +13,16 @@ public class Cliente extends Persona {
         this.puntos = 0;
     }
 
-    public Cliente(String nombre, String dni, String telefono, int puntos) {
+    public Cliente(String nombre, String dni, String telefono, int gamePoints) {
         super(nombre, dni, telefono);
-        this.puntos = puntos;
+        this.gamePoints = gamePoints;
     }
 
-    public int getPuntos() {
-        return puntos;
+    public int getGamePoints() {
+        return gamePoints;
     }
 
-    public void setPuntos(int puntos) {
-        this.puntos = puntos;
+    public void setGamePoints(int gamePoints) {
+        this.gamePoints = gamePoints;
     }
 }
