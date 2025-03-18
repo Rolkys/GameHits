@@ -2,7 +2,9 @@
 Proyecto clase
 
 Gestion de GameHits
-JAJAJA
+
+Añadir en el PDF objetivos mas generales.
+
 
 1.-Gestion de Clientes (LinkedList)
 	1.1.-Alta Clientes
