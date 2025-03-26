@@ -28,4 +28,23 @@ Añadir en el PDF objetivos mas generales.
 	4.2.-Baja Empleado
 	4.3.-Listado Empleado
 
+
+COSAS QUE HAY QUE HACER
+Quitar lo de plantilla
+Espacio en nombres 
+Poner modo libro, y lo importante en las impares
+Tildes en la introducción 
+Java en mayúsculas 
+Motivos para destacar la aplicación 
+(Requisitos no funcionales)
+Texto en los objetivos generales 
+Gestionar la venta de videojuegos en una tienda, que sea manejable y atractiva para el usuario,
+
+Listados
+Jefes 
+Login 
+
+Cada requisito es un circulo en el dibujo 
+
+
  
