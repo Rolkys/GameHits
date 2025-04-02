@@ -31,18 +31,7 @@ Añadir en el PDF objetivos mas generales.
 
 COSAS QUE HAY QUE HACER
 
-Quitar lo de plantilla
-
-Espacio en nombres 
-
-Poner modo libro, y lo importante en las impares
-
-Tildes en la introducción 
-
-Java en mayúsculas 
-
 Motivos para destacar la aplicación 
-
 (Requisitos no funcionales)
 
 Texto en los objetivos generales 
