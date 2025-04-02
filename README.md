@@ -29,11 +29,5 @@ Añadir en el PDF objetivos mas generales.
 	4.3.-Listado Empleado
 
 
-COSAS QUE HAY QUE HACER
-
-Login 
-
-Cada requisito es un circulo en el dibujo 
-
 
  
