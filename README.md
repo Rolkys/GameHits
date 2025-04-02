@@ -31,15 +31,6 @@ Añadir en el PDF objetivos mas generales.
 
 COSAS QUE HAY QUE HACER
 
-Motivos para destacar la aplicación 
-(Requisitos no funcionales)
-
-Texto en los objetivos generales 
-
-Gestionar la venta de videojuegos en una tienda, que sea manejable y atractiva para el usuario,
-
-Listados
-Jefes 
 Login 
 
 Cada requisito es un circulo en el dibujo 
