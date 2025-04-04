@@ -1,0 +1,216 @@
+#!/bin/bash
+
+nombre_fich=miservicio.log #guarda en una variable el nombre de un fichero
+
+while true
+do
+	echo $nombre_fich #Imprime por pantalla el nombre del fichero
+	date >> $nombre_fich #Añade al final del fichero la fecha actual
+	sleep 1s #Espera un segundo para dar otra vuelta
+done
+
+#ARGUMENTOS
+#Argumentos de entrada $1,$2...
+#$@ es el conjunto de argumentos
+#$# es el numero de argumentos
+#$? es el codigo de error del ultimo comando ejecutado
+#Cada argumento es una plabra o 
+
+#OPERACIONES
+#pedir valores por consola
+read -p "Introduce un dato:" variable
+
+#operaciones matematicas
+$((operacion))
+$((var1 + var2))
+#dentro de (()) las variables se pueden usar sin $
+
+#Crea un shell script que tome dos argumentos 
+#y los muestre por consola
+
+#!/bin/bash
+
+echo "Primer argumento: $1"
+echo "Segundo argumento: $2"
+
+#Crea un shell script que lea dos números por teclado, los sume, los
+#multiplique y muestre por consola los resultados
+
+#!/bin/bash
+
+echo "Introduce un numero: "
+read var1
+
+echo "Introduce otro numero: "
+read var2
+
+suma=$((var1 + var2))
+
+multi=%((var1 * var2))
+
+echo "La suma es: $suma"
+echo "La multiplicacion es &multi"
+
+#Crea un shell script que introduzca en un fichero el resultado 
+#de ejecutar
+#“ls *.txt” en tu directorio home
+
+#!/bin/bash
+
+cd ~
+
+ls *.txt > listado_txt.txt
+
+echo "Listado de archivos guardado en listado_txt.txt"
+
+#CONDICIONALES
+if [[ condicion ]]; then
+	sentencias
+elif [[ condicion ]]; then
+	sentencias
+else 
+	sentencias
+fi
+
+#Tambien se puede poner asi
+
+if [[ condicion ]]
+then
+	sentencias
+elif [[ condicion ]]
+then
+	sentencias
+else 
+	sentencias
+fi
+
+#OPERADORES LOGICOS
+
+#Enteros
+-a (AND)
+-o (OR)
+-gt (>)
+-lt (<)
+-gte (>=)
+-lte (<=)
+-eq (==)
+-ne (!=)
+
+if [[ $a -gt 60 -a $b -lt 100 ]];
+
+#Cadenas
+&& AND
+|| OR
+==
+!=
+
+if [[ $a == "100" ]];
+#Archivos
+-e (Si existe el archivo)
+! negacion
+
+if [[ ! -e "miarchivo.txt" ]]; si no existe el archivo
+
+#Ejemplo
+#!/bin/bash
+read -p "Introduce un numero: " num
+if [[ $num -gt 0 ]]; then
+	echo "$num es positivo"
+elif [[ $num -lt 0 ]]; then
+	echo "$num es negativo"
+else
+	echo "$num es cero"
+fi
+
+#!/bin/bash
+if [[ $# -eq 2 ]]; then
+	echo $1
+	echo $2
+else
+	echo "El numero de argumentos es: $#"
+fi
+
+#Bucles while
+while [[ condicion ]]
+do
+	sentencias
+done
+
+#!/bin/bash
+numero=1
+
+while [[ $numero -ne 0 ]]; do
+	read -p "Introduce un numero entero (0 = salir): " numero
+	echo "has introducido: $numero"
+done
+
+echo "Has salido del bucle"
+
+#Bucles for
+
+for variable in conjuntos de elementos
+do
+	sentencias
+done
+
+#!/bin/bash
+for i in {1..5}; do
+	echo $i
+done
+
+#!/bin/bash
+for i in $@; do
+	echo $i
+done
+
+#!/bin/bash
+cd ~
+for i in *.txt; do
+	echo "tenemos el archivo: $i"
+done
+
+#Estructuras case
+
+case expresion in
+	pattern1)
+		sentencias
+		;;
+	pattern2
+		sentencias
+		;;
+	pattern3
+		sentencias
+		;;
+	*)
+		sentencias
+		;;
+esac
+
+case $1 in
+	manzana)
+		echo "Es una fruta roja"
+		;;
+	platano|limon)
+		echo "Es una fruta amarilla"
+		;;
+	persimon)
+		echo "Es una fruta naranja"
+		;;
+	*)
+		echo "Es una fruta desconocida"
+		;;
+esac
+
+#Finalizacion
+exit n
+finaliza el script y devuelvee un codigo de error
+0 suele ser salida exitosa
+
+set -e
+el script finaliza si cualquier comando falla
+se pone despues de #!/bin/bash
+
+echo $?
+para ver el codigo de salida del ultimo comando ejecutado
+para comprobar si nuestro shell script ha tenido una salida existosa,
+lo hariamos desde la linea de comandos
