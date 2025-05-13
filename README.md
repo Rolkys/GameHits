@@ -8,14 +8,6 @@ Añadir en el PDF objetivos mas generales.
 Quitar rnf de las tablas 
 Jdk 21
 Idea intelli j y GitHub 
-Quitar idempleado
-Quitar idCliente
-Cambiar números de sitio en empleado hace factura 
-
-Cambiar también factura cliente
-
-Cambiar atributos
-Linea factura
 
 Modo admin para la parte visual de la pagina, ultimo apartado del punto 3
 
