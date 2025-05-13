@@ -3,15 +3,6 @@ Proyecto clase
 
 Gestion de GameHits
 
-Añadir en el PDF objetivos mas generales.
-
-Quitar rnf de las tablas 
-Jdk 21
-Idea intelli j y GitHub 
-
-Modo admin para la parte visual de la pagina, ultimo apartado del punto 3
-
-
 1.-Gestion de Clientes (LinkedList)
 	1.1.-Alta Clientes
 	1.2.-Baja Clientes
