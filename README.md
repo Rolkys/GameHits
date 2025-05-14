@@ -3,6 +3,12 @@ Proyecto clase
 
 Gestion de GameHits
 
+Escribir algo encima de las capturas puntos 2.3 , 3.2 , 3.3, 3.4
+Uml cambiar, falta linea factura y el main
+Explicar las estructuras de paquetes y explicación de las clases y los procesos(alta, baja y todo eso)
+Imágenes de los commit en control de versiones
+y arreglar cambios anteriores 
+
 1.-Gestion de Clientes (LinkedList)
 	1.1.-Alta Clientes
 	1.2.-Baja Clientes
