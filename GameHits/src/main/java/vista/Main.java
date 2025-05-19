@@ -31,4 +31,8 @@ public class Main {
         System.out.println("Has sido bareboneado");
         //algo
     }
+
+    public static void bombo(){
+        System.out.println("Mibombo");
+    }
 }
