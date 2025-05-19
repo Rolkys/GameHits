@@ -32,7 +32,5 @@ public class Main {
         //algo
     }
 
-    public static void bombo(){
-        System.out.println("Mibombo");
-    }
+
 }
