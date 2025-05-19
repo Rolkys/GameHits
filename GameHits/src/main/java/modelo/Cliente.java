@@ -10,7 +10,7 @@ public class Cliente extends Persona {
 
     public Cliente(String dni) {
         super(dni);
-        this.puntos = 0;
+        this.gamePoints = 0;
     }
 
     public Cliente(String nombre, String dni, String telefono, int gamePoints) {
