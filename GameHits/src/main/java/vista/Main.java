@@ -64,9 +64,34 @@ public class Main {
             op = mostrarMenu();
             switch (op) {
                 case 1: { //Alta cliente
+                    Cliente cliente = new Cliente();
+                    System.out.print("Introduce el dni del cliente: ");
+                    cliente.setDni(sc.next());
+                    System.out.print("Introduce el nombre del cliente: ");
+                    cliente.setNombre(sc.next());
+                    System.out.print("Introduce el telefono del cliente: ");
+                    cliente.setTelefono(sc.next());
+
+
+                    try{
+                        cliente.altaCliente(clientes);
+                        System.out.println("Alta de cliente correcta");
+                    }catch(Exception e){
+                        System.out.println("Alta de cliente incorrecta" + e.getMessage());
+                    }
                     break;
                 }
                 case 2: {//Baja Cliente
+                    Cliente cliente = new Cliente();
+                    System.out.print("Introduce el dni del empleado: ");
+                    cliente.setDni(sc.next());
+
+                    try{
+                        cliente.bajaCliente(clientes);
+                        System.out.println("Baja de cliente correcta");
+                    }catch(Exception e){
+                        System.out.println("Baja de cliente incorrecta" + e.getMessage());
+                    }
                     break;
                 }
                 case 3: {//Alta Videojuego
@@ -199,6 +224,15 @@ public class Main {
                     break;
                 }
                 case 8: {//Listado de clientes
+                    System.out.println("LISTADO DE CLIENTES");
+                    System.out.println("--------------------");
+                    for(Cliente cliente : clientes){
+                        System.out.printf("DNI: %s NOMBRE: %s TELEFONO: %s GAMEPOINTS: %d\n",
+                                cliente.getDni(),
+                                cliente.getNombre(),
+                                cliente.getTelefono(),
+                                cliente.getGamePoints());
+                    }
                     break;
                 }
                 case 9: {//Listado de empleados
