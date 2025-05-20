@@ -1,5 +1,8 @@
 package modelo;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class LineaFactura {
     private String idFactura;
     private String idJuego;
@@ -52,58 +55,39 @@ public class LineaFactura {
         this.subtotal = subtotal;
     }
 
-    public boolean existeLinea(LineaFactura[] lineas) {
-
-        for (int i = 0; i < lineas.length; i++) {
-            if (lineas[i] != null) {
-                if (lineas[i].getIdFactura().equals(idFactura)) {
-                    if (lineas[i].getCodigoProducto() == codigoProducto) {
-                        return true;
-                    }
+    public boolean existeLinea(ArrayList<LineaFactura> lineas) {
+        for (LineaFactura linea : lineas) {
+            if (linea.getIdFactura().equals(idFactura)) {
+                if (linea.getIdJuego().equals(idJuego)) {
+                    return true;
                 }
             }
         }
-
         return false;
     }
 
-    public boolean altaLinea(LineaFactura[] lineas) {
+    public boolean altaLinea(ArrayList<LineaFactura> lineas) {
         if (existeLinea(lineas)) {
             return false;
         }
+        lineas.add(this);
 
-        for (int i = 0; i < lineas.length; i++) {
-            if (lineas[i] == null) {
-                lineas[i] = this;
-                return true;
-            }
-        }
-
-        return false;
+        return true;
     }
 
-    public void calcularSubTotal(Producto[] productos) {
+    public void calcularSubTotal(ArrayList<Videojuego> videojuegos) {
+        for (Videojuego vj : videojuegos) {
+            if (vj.getId().equals(idJuego)) {
+                subtotal = cantidad* vj.getPrecio();
+            }
+        }
+    }
+
+    public String getNombre(ArrayList<Videojuego> videojuegos) {
+        String nombre = "";
         for (Videojuego vj: videojuegos){
             if (vj.getId().equals(idJuego)){
-
-            }
-        }
-        for (int i = 0; i < productos.length; i++) {
-            if (productos[i] != null) {
-                if (productos[i].getCodigo() == codigoProducto) {
-                    subtotal = cantidad * productos[i].getPrecioU();
-                }
-            }
-        }
-    }
-
-    public String getNombre(Producto[] productos) {
-        String nombre = "";
-        for (int i = 0; i < productos.length; i++) {
-            if (productos[i] != null) {
-                if (productos[i].getCodigo() == this.codigoProducto) {
-                    nombre = productos[i].getNombre();
-                }
+                nombre=vj.getTitulo();
             }
         }
         return nombre;
