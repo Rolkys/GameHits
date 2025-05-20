@@ -95,17 +95,17 @@ public class LineaFactura {
 
     public String getNombre(ArrayList<Videojuego> videojuegos) {
         String nombre = "";
-        for (Videojuego vj: videojuegos){
-            if (vj.getId().equals(idJuego)){
-                nombre=vj.getTitulo();
+        for (Videojuego videojuego: videojuegos){
+            if (videojuego.getId().equals(idJuego)){
+                nombre=videojuego.getTitulo();
             }
         }
         return nombre;
     }
     public Videojuego getJuego(ArrayList<Videojuego> videojuegos) {
-        for (Videojuego vj: videojuegos){
-            if (vj.getId().equals(idJuego)){
-                return vj;
+        for (Videojuego videojuego: videojuegos){
+            if (videojuego.getId().equals(idJuego)){
+                return videojuego;
             }
         }
         return null;

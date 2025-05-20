@@ -109,7 +109,7 @@ public class Main {
                     break;
                 }
                 case 7: {//Nueva factura
-                    Factura f;
+                    Factura factura;
                     System.out.print("Seleccione el tipo de factura: (1)Unica (2)Multiple: ");
                     int of = sc.nextInt();
                     System.out.print("Introduce el dni del Cliente: ");
@@ -122,29 +122,29 @@ public class Main {
                     int cont = 0;
                     char c = ' ';
                     if (of == 1) {
-                        f = new FacturaU();
-                        f.setFecha(LocalDate.now());
-                        f.setDniCliente(dniC);
-                        f.setDniEmpleado(dniE);
-                        f.setIva(iva);
+                        factura = new FacturaU();
+                        factura.setFecha(LocalDate.now());
+                        factura.setDniCliente(dniC);
+                        factura.setDniEmpleado(dniE);
+                        factura.setIva(iva);
                         System.out.print("Introduce el id de videojuego: ");
                         String id = sc.next();
                         System.out.print("Introduce la cantidad: ");
                         int cant = sc.nextInt();
-                        ((FacturaU) f).setCantidad(cant);
-                        ((FacturaU) f).setCodigoProducto(id);
+                        ((FacturaU) factura).setCantidad(cant);
+                        ((FacturaU) factura).setCodigoProducto(id);
                         try {
-                            ((FacturaU) f).altaFacturas(clientes, facturas, videojuegos, empleados);
-                            System.out.println("Alta de factura correcta ID:"+f.getId());
+                            ((FacturaU) factura).altaFacturas(clientes, facturas, videojuegos, empleados);
+                            System.out.println("Alta de factura correcta ID:"+factura.getId());
                         }catch(Exception e){
                             System.out.println("Alta de factura incorrecta"+e.getMessage());
                         }
                     } else if (of == 2) {
-                        f = new FacturaL();
-                        f.setFecha(LocalDate.now());
-                        f.setDniCliente(dniC);
-                        f.setDniEmpleado(dniE);
-                        f.setIva(iva);
+                        factura = new FacturaL();
+                        factura.setFecha(LocalDate.now());
+                        factura.setDniCliente(dniC);
+                        factura.setDniEmpleado(dniE);
+                        factura.setIva(iva);
                         do {
                             LineaFactura linea = new LineaFactura();
                             System.out.print("Introduce el id del videojuego: ");
@@ -153,16 +153,16 @@ public class Main {
                             int cant = sc.nextInt();
                             linea.setCantidad(cant);
                             linea.setIdJuego(id);
-                            linea.altaLinea(((FacturaL) f).getLineas());
+                            linea.altaLinea(((FacturaL) factura).getLineas());
                             linea.calcularSubTotal(videojuegos);
-                            f.setTotal(linea.getSubtotal());
+                            factura.setTotal(linea.getSubtotal());
                             System.out.print("Quieres introducir otra linea de factura (s/n): ");
                             c = sc.next().charAt(0);
                         } while (c != 'n');
 
                         try {
-                            ((FacturaL) f).altaFacturas(clientes, facturas, videojuegos, empleados);
-                            System.out.println("Alta de factura correcta ID:"+f.getId());
+                            ((FacturaL) factura).altaFacturas(clientes, facturas, videojuegos, empleados);
+                            System.out.println("Alta de factura correcta ID:"+factura.getId());
                         }catch(Exception e){
                             System.out.println("Alta de factura incorrecta"+e.getMessage());
                         }
@@ -181,13 +181,13 @@ public class Main {
                 case 10: {//Listado de Videojuegos
                     System.out.println("LISTADO DE VIDEOJUEGOS");
                     System.out.println("----------------------");
-                    for (Videojuego vj : videojuegos) {
+                    for (Videojuego videojuego : videojuegos) {
                         System.out.printf("ID: %s TITULO: %s CATEGORIA: %s PRECIO: %.2f TIPO: %s\n",
-                                vj.getId(),
-                                vj.getTitulo(),
-                                vj.getCategoria(),
-                                vj.getPrecio(),
-                                vj.getTipo());
+                                videojuego.getId(),
+                                videojuego.getTitulo(),
+                                videojuego.getCategoria(),
+                                videojuego.getPrecio(),
+                                videojuego.getTipo());
                     }
                     break;
                 }
@@ -214,12 +214,12 @@ public class Main {
                                     factura.getIva(),
                                     factura.getTotal());
                             for (LineaFactura linea : ((FacturaL) factura).getLineas()){
-                                Videojuego v = linea.getJuego(videojuegos);
+                                Videojuego videojuego = linea.getJuego(videojuegos);
                                 System.out.printf("\tID: %s TITULO: %s CATEGORIA: %s TIPO: %s CANTIDAD: %d SUBTOTAL: %.2f\n",
-                                        v.getId(),
-                                        v.getTitulo(),
-                                        v.getCategoria(),
-                                        v.getTipoString(),
+                                        videojuego.getId(),
+                                        videojuego.getTitulo(),
+                                        videojuego.getCategoria(),
+                                        videojuego.getTipoString(),
                                         linea.getCantidad(),
                                         linea.getSubtotal());
                             }

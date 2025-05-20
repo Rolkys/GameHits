@@ -102,8 +102,8 @@ public class Videojuego {
 
     /*METODOS*/
     public boolean existeJuego(ArrayList<Videojuego> videojuegos) {
-        for (Videojuego vj : videojuegos) {
-            if (vj.getId().equals(this.id)) {
+        for (Videojuego videojuego : videojuegos) {
+            if (videojuego.getId().equals(this.id)) {
                 return true;
             }
         }
