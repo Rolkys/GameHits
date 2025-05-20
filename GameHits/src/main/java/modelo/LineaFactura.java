@@ -75,6 +75,10 @@ public class LineaFactura {
         return true;
     }
 
+    /**
+     * calcula el total del producto que tiene la linea
+     * @param videojuegos Coleccion de videojuego
+     */
     public void calcularSubTotal(ArrayList<Videojuego> videojuegos) {
         for (Videojuego vj : videojuegos) {
             if (vj.getId().equals(idJuego)) {
@@ -82,6 +86,12 @@ public class LineaFactura {
             }
         }
     }
+
+    /**
+     * Obtiene el nombre del videojuego pedido
+     * @param videojuegos Coleccion de videojuego
+     * @return Nombre del videojuego
+     */
 
     public String getNombre(ArrayList<Videojuego> videojuegos) {
         String nombre = "";

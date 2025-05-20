@@ -1,3 +1,12 @@
+/**
+ * Proyecto gestion de una tienda de videojuegos</br>
+ *
+ * @author Raúl Marín García y José Valero Fernández
+ * @version 1.5.1
+ * @since 20/05/2025
+ */
+
+
 package modelo;
 
 import java.time.LocalDate;
@@ -80,36 +89,45 @@ public class Factura {
         this.total = total;
     }
 
-    public double calcularTotalU(Factura factura){
-        return ((FacturaU)factura).getSubtotal();
+    public double calcularTotalU(Factura factura) {
+        return ((FacturaU) factura).getSubtotal();
     }
 
-    public double calcularTotal(ArrayList<LineaFactura> lineas){
+    /**
+     * Metodo que calcula el total del precio de las lineas de la factura
+     *
+     * @param lineas Coleccion de Linea Factura
+     * @return Precio total factura
+     */
+
+    public double calcularTotal(ArrayList<LineaFactura> lineas) {
         double suma = 0.0;
-        for (LineaFactura linea:lineas){
+        for (LineaFactura linea : lineas) {
             suma = suma + linea.getSubtotal();
         }
-        return suma +(suma*iva/100);
+        return suma + (suma * iva / 100);
     }
 
-    public Cliente getCliente(ArrayList<Cliente> clientes){
+    public Cliente getCliente(ArrayList<Cliente> clientes) {
         int op = -1;
-        for (Cliente cliente:clientes){
-            if (cliente.getDni().equals(dniCliente)){
-                op=clientes.indexOf(cliente);
+        for (Cliente cliente : clientes) {
+            if (cliente.getDni().equals(dniCliente)) {
+                op = clientes.indexOf(cliente);
             }
         }
         return clientes.get(op);
     }
-    public Empleado getEmpleado(ArrayList<Empleado> empleados){
+
+    public Empleado getEmpleado(ArrayList<Empleado> empleados) {
         int op = -1;
-        for (Empleado empleado:empleados){
-            if (empleado.getDni().equals(dniEmpleado)){
-                op=empleados.indexOf(empleado);
+        for (Empleado empleado : empleados) {
+            if (empleado.getDni().equals(dniEmpleado)) {
+                op = empleados.indexOf(empleado);
             }
         }
         return empleados.get(op);
     }
+
     public boolean existeFacturas(ArrayList<Factura> facturas) {
         for (Factura factura : facturas) {
             if (factura.getId().equals(id)) {

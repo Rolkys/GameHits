@@ -1,3 +1,14 @@
+/**
+ *
+ *  Proyecto gestion de una tienda de videojuegos</br>
+ *
+ *
+ * @author Raúl Marín García y José Valero Fernández
+ * @version 1.5.1
+ * @since 20/05/2025
+ *
+ */
+
 package modelo;
 
 import java.util.ArrayList;
@@ -53,6 +64,13 @@ public class FacturaU extends Factura {
         }
         return false;
     }
+
+    /**
+     * Saca el videojuego de las lista de videojuegos
+     *
+     * @param videojuegos Coleccion de videojuego
+     * @return Id juego
+     */
     public Videojuego obtenerJuego(ArrayList<Videojuego> videojuegos){
         for (Videojuego vj: videojuegos){
             if (vj.getId().equals(idJuego)){

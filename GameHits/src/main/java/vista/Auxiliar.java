@@ -1,3 +1,13 @@
+/**
+ *
+ *  Proyecto gestion de una tienda de videojuegos</br>
+ *
+ *
+ * @author Raúl Marín García y José Valero Fernández
+ * @version 1.5.1
+ * @since 20/05/2025
+ *
+ */
 package vista;
 
 import modelo.Cliente;
@@ -8,7 +18,13 @@ import java.util.ArrayList;
 
 public class Auxiliar {
 
-
+    /**
+     * Precarga de algunos datos para que el programa no este vacio
+     *
+     * @param empleados Coleccion de Empleado
+     * @param clientes Coleccion de Cliente
+     * @param videojuegos Coleccion de Videojuego
+     */
     public static void preCargaDatos(ArrayList<Empleado> empleados, ArrayList<Cliente> clientes, ArrayList<Videojuego> videojuegos) {
 
         //2 empleados uno con dni "0" que seria el admin
