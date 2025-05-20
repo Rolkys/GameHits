@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Factura {
     private String id;
@@ -75,4 +76,55 @@ public class Factura {
     public void setTotal(double total) {
         this.total = total;
     }
+
+    public double calcularTotalU(Factura factura){
+        //return ((FacturaU)factura).getSubtotal();
+        return 0.0;
+    }
+
+    public double calcularTotal(ArrayList<LineaFactura> lineas){
+        double suma = 0.0;
+        for (LineaFactura linea:lineas){
+            //suma = suma + linea.getSubtotal();
+        }
+        return suma +(suma*iva/100);
+    }
+
+    public Cliente getCliente(ArrayList<Cliente> clientes){
+        int op = -1;
+        for (Cliente cliente:clientes){
+            if (cliente.getDni().equals(dniCliente)){
+                op=clientes.indexOf(cliente);
+            }
+        }
+        return clientes.get(op);
+    }
+    public Empleado getEmpleado(ArrayList<Empleado> empleados){
+        int op = -1;
+        for (Empleado empleado:empleados){
+            if (empleado.getDni().equals(dniEmpleado)){
+                op=empleados.indexOf(empleado);
+            }
+        }
+        return empleados.get(op);
+    }
+    public boolean existeFacturas(ArrayList<Factura> facturas) {
+        for (Factura factura : facturas) {
+            if (factura.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /*public void bajaFacturas(Set<Factura> facturas) throws Exception {
+        if (!existeFacturas(facturas)) {
+            throw new Exception("La factura ya existe");
+        }
+
+        for (Factura factura : facturas) {
+            if (factura.getId().equals(id)) {
+                facturas.remove(factura);
+            }
+        }
+    }*/
 }
