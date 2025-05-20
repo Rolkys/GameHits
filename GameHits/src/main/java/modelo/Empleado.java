@@ -1,21 +1,24 @@
 package modelo;
 
-public class Empleado extends Persona {
+public class Empleado  {
     protected String puesto;
+    private String nombre;
+    private String dni;
+    private String telefono;
 
     public Empleado() {
-        super();
+
         puesto = "";
     }
 
     public Empleado(String dni) {
-        super(dni);
+
         this.puesto = "";
     }
 
 
     public Empleado(String dni, String nombre, String telefono, String puesto) {
-        super(dni, nombre, telefono);
+
         this.puesto = puesto;
     }
 

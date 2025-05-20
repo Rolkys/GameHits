@@ -2,21 +2,30 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Cliente extends Persona {
+public class Cliente  {
     protected int gamePoints;
+    private String nombre;
+    private String dni;
+    private String telefono;
 
     public Cliente() {
-        super();
+        dni = "";
+        nombre = "";
+        telefono = "";
         gamePoints = 0;
     }
 
     public Cliente(String dni) {
-        super(dni);
+        this.dni = dni;
+        this.nombre = "";
+        this.telefono = "";
         this.gamePoints = 0;
     }
 
     public Cliente(String dni, String nombre, String telefono, int gamePoints) {
-        super(dni, nombre, telefono);
+        this.dni = dni;
+        this.nombre = nombre;
+        this.telefono = telefono;
         this.gamePoints = gamePoints;
     }
 
@@ -30,11 +39,27 @@ public class Cliente extends Persona {
 
     public boolean existeCliente(ArrayList<Cliente> clientes) {
         for (Cliente c : clientes) {
-            if (c.getDni().equals(this.dni)){
+            if (c.dni.equals(this.dni)){
                 return true;
             }
         }
         return false;
+    }
+    public void altaCliente(ArrayList<Cliente> clientes) throws Exception {
+        if (existeCliente(clientes)) throw new Exception("MI BOMBO");
+        try{
+            clientes.add(this);
+            return;
+        }catch (Exception e){
+            throw new Exception("Error en alta juego");
+        }
+    }
+
+    public void bajaCliente(ArrayList<Cliente> clientes)throws Exception{
+        if (!existeCliente(clientes)) throw new Exception("MI BOMBO");
+
+        clientes.remove(dni);
+        return;
     }
 
 
