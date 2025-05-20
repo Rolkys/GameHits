@@ -1,21 +1,21 @@
 package modelo;
 
 public class LineaFactura {
-    /*private String idFactura;
-    private int codigoProducto;
+    private String idFactura;
+    private String idJuego;
     private int cantidad;
     private double subtotal;
 
     public LineaFactura() {
         idFactura = "";
-        codigoProducto = 0;
+        idJuego = "";
         cantidad = 0;
         subtotal = 0.0;
     }
 
-    public LineaFactura(String idFactura, int codigoProducto) {
+    public LineaFactura(String idFactura, String idJuego) {
         this.idFactura = idFactura;
-        this.codigoProducto = codigoProducto;
+        this.idJuego = idJuego;
         cantidad = 0;
         subtotal = 0.0;
     }
@@ -28,12 +28,12 @@ public class LineaFactura {
         this.idFactura = idFactura;
     }
 
-    public int getCodigoProducto() {
-        return codigoProducto;
+    public String getIdJuego() {
+        return idJuego;
     }
 
-    public void setCodigoProducto(int codigoProducto) {
-        this.codigoProducto = codigoProducto;
+    public void setIdJuego(String idJuego) {
+        this.idJuego = idJuego;
     }
 
     public int getCantidad() {
@@ -83,6 +83,11 @@ public class LineaFactura {
     }
 
     public void calcularSubTotal(Producto[] productos) {
+        for (Videojuego vj: videojuegos){
+            if (vj.getId().equals(idJuego)){
+
+            }
+        }
         for (int i = 0; i < productos.length; i++) {
             if (productos[i] != null) {
                 if (productos[i].getCodigo() == codigoProducto) {
@@ -103,5 +108,4 @@ public class LineaFactura {
         }
         return nombre;
     }
-    */
 }

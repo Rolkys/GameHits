@@ -3,6 +3,7 @@ package vista;
 import modelo.Cliente;
 import modelo.Empleado;
 import modelo.Videojuego;
+import modelo.Factura;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -38,6 +39,7 @@ public class Main {
         ArrayList<Cliente> clientes = new ArrayList<>();
         ArrayList<Empleado> empleados = new ArrayList<>();
         ArrayList<Videojuego> videojuegos = new ArrayList<>();
+        ArrayList<Factura> facturas = new ArrayList<>();
         Auxiliar.preCargaDatos(empleados,clientes,videojuegos);
         int op = 0;
         do {

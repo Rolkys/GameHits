@@ -1,23 +1,25 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class FacturaL extends Factura {
-    /*private List<LineaFactura> lineas;
+    private ArrayList<LineaFactura> lineas;
 
     public FacturaL() {
         super();
         lineas = new ArrayList<>();
     }
 
-    public FacturaL(List<LineaFactura> lineas) {
+    public FacturaL(ArrayList<LineaFactura> lineas) {
         super();
         this.lineas = lineas;
     }
 
-    public List<LineaFactura> getLineas() {
+    public ArrayList<LineaFactura> getLineas() {
         return lineas;
     }
 
-    public void setLineas(List<LineaFactura> lineas) {
+    public void setLineas(ArrayList<LineaFactura> lineas) {
         this.lineas = lineas;
     }
 
@@ -25,13 +27,14 @@ public class FacturaL extends Factura {
         lineas.add(linea);
     }
 
-    public void altaFacturas(Map<String, Cliente> clientes, Set<Factura> facturas, List<Producto> productos) throws Exception {
+    public void altaFacturas(ArrayList<Cliente> clientes, ArrayList<Factura> facturas, ArrayList<Videojuego> videojuegos,ArrayList<Empleado> empleados) throws Exception {
         try {
             Cliente clientetmp = new Cliente();
-            clientetmp.setDni(dni);
-            boolean existeCliente = clientetmp.existeCliente(clientes);
+            Empleado empleadotmp = new Empleado();
+            clientetmp.setDni(super.getDniCliente());
+            empleadotmp.setDni(super.getDniEmpleado());
 
-            if (!existeCliente) {
+            if (!clientetmp.existeCliente(clientes)) {
                 throw new Exception("El cliente no existe");
             }
 
@@ -50,5 +53,5 @@ public class FacturaL extends Factura {
             throw new Exception("Error en el alta de facturas\n" + e.getMessage());
         }
     }
-    */
+
 }

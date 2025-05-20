@@ -1,30 +1,32 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class FacturaU extends Factura {
-    /*private int codigoProducto;
+    private String idJuego;
     private int cantidad;
     private double subtotal;
 
     public FacturaU() {
         super();
-        codigoProducto = 0;
+        idJuego = "";
         cantidad = 0;
         subtotal = 0;
     }
 
-    public FacturaU(int codigoProducto) {
+    public FacturaU(String idJuego) {
         super();
-        this.codigoProducto = codigoProducto;
+        this.idJuego = idJuego;
         this.cantidad = 0;
         this.subtotal = 0.0;
     }
 
-    public int getCodigoProducto() {
-        return codigoProducto;
+    public String getCodigoProducto() {
+        return idJuego;
     }
 
-    public void setCodigoProducto(int codigoProducto) {
-        this.codigoProducto = codigoProducto;
+    public void setCodigoProducto(String idJuego) {
+        this.idJuego = idJuego;
     }
 
     public int getCantidad() {
@@ -43,40 +45,40 @@ public class FacturaU extends Factura {
         this.subtotal = subtotal;
     }
 
-    public boolean existeProducto(List<Producto> productos) {
-        for (Producto producto : productos) {
-            if (producto.getCodigo() == codigoProducto) {
+    public boolean existeJuego(ArrayList<Videojuego> videojuegos) {
+        for (Videojuego vj : videojuegos) {
+            if (vj.getId().equals(this.idJuego)){
                 return true;
             }
         }
         return false;
     }
-
-    public Producto obtenerProducto(List<Producto> productos) {
-        for (Producto producto : productos) {
-            if (producto.getCodigo() == codigoProducto) {
-                return producto;
+    public Videojuego obtenerJuego(ArrayList<Videojuego> videojuegos){
+        for (Videojuego vj: videojuegos){
+            if (vj.getId().equals(idJuego)){
+                return vj;
             }
         }
         return null;
     }
 
-    public double obtenerSubtotal(List<Producto> productos) {
-        for (Producto producto : productos) {
-            if (producto.getCodigo() == codigoProducto) {
-                return producto.getPrecioUnidad() * cantidad;
+    public double obtenerSubtotal(ArrayList<Videojuego> videojuegos) {
+        for (Videojuego vj : videojuegos) {
+            if (vj.getId().equals(idJuego)) {
+                return vj.getPrecio() * cantidad;
             }
         }
         return 0.0;
     }
 
-    public void altaFacturas(Map<String, Cliente> clientes, Set<Factura> facturas, List<Producto> productos) throws Exception {
+    public void altaFacturas(ArrayList<Cliente> clientes, ArrayList<Factura> facturas, ArrayList<Videojuego> videojuegos,ArrayList<Empleado> empleados) throws Exception {
         try {
             Cliente clientetmp = new Cliente();
-            clientetmp.setDni(dni);
-            boolean existeCliente = clientetmp.existeCliente(clientes);
+            Empleado empleadotmp = new Empleado();
+            clientetmp.setDni(super.getDniCliente());
+            empleadotmp.setDni(super.getDniEmpleado());
 
-            if (!existeCliente) {
+            if (!clientetmp.existeCliente(clientes)) {
                 throw new Exception("El cliente no existe");
             }
 
@@ -85,12 +87,12 @@ public class FacturaU extends Factura {
             }
             id = String.format("FA%03d", contFacturas++);
 
-            subtotal = obtenerSubtotal(productos);
-            total = obtenerSubtotal(productos) + (obtenerSubtotal(productos) * IVA / 100);
+            subtotal = obtenerSubtotal(videojuegos);
+            total = obtenerSubtotal(videojuegos) + (obtenerSubtotal(videojuegos) * iva / 100);
 
             facturas.add(this);
         } catch (Exception e) {
             throw new Exception("Error en el alta de facturas\n" + e.getMessage());
         }
-    }*/
+    }
 }

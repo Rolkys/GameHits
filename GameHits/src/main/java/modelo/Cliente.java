@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Cliente extends Persona {
     protected int gamePoints;
 
@@ -24,5 +26,14 @@ public class Cliente extends Persona {
 
     public void setGamePoints(int gamePoints) {
         this.gamePoints = gamePoints;
+    }
+
+    public boolean existeCliente(ArrayList<Cliente> clientes) {
+        for (Cliente c : clientes) {
+            if (c.getDni().equals(this.dni)){
+                return true;
+            }
+        }
+        return false;
     }
 }

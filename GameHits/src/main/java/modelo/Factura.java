@@ -4,12 +4,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Factura {
-    private String id;
+    protected String id;
     private LocalDate fecha;
     private String dniCliente;
     private String dniEmpleado;
-    private int iva;
-    private double total;
+    protected int iva;
+    protected double total;
+
+    public static int contFacturas = 1;
+    public static int numFacturas = 0;
 
     public Factura() {
         id = "";
@@ -78,14 +81,13 @@ public class Factura {
     }
 
     public double calcularTotalU(Factura factura){
-        //return ((FacturaU)factura).getSubtotal();
-        return 0.0;
+        return ((FacturaU)factura).getSubtotal();
     }
 
     public double calcularTotal(ArrayList<LineaFactura> lineas){
         double suma = 0.0;
         for (LineaFactura linea:lineas){
-            //suma = suma + linea.getSubtotal();
+            suma = suma + linea.getSubtotal();
         }
         return suma +(suma*iva/100);
     }
