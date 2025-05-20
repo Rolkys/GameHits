@@ -103,9 +103,35 @@ public class Main {
                     break;
                 }
                 case 5: {//Alta empleado
+                    Empleado empleado = new Empleado();
+                    System.out.print("Introduce el dni del empleado: ");
+                    empleado.setDni(sc.next());
+                    System.out.print("Introduce el nombre del empleado: ");
+                    empleado.setNombre(sc.next());
+                    System.out.print("Introduce el telefono del empleado: ");
+                    empleado.setTelefono(sc.next());
+                    System.out.print("Introduce el puesto del empleado: ");
+                    empleado.setPuesto(sc.next());
+
+                    try{
+                        empleado.altaEmpleado(empleados);
+                        System.out.println("Alta de empleado correcta");
+                    }catch(Exception e){
+                        System.out.println("Alta de empleado incorrecta" + e.getMessage());
+                    }
                     break;
                 }
                 case 6: {//Baja empleado
+                    Empleado empleado = new Empleado();
+                    System.out.print("Introduce el dni del empleado: ");
+                    empleado.setDni(sc.next());
+
+                    try{
+                        empleado.bajaEmpleado(empleados);
+                        System.out.println("Baja de empleado correcta");
+                    }catch(Exception e){
+                        System.out.println("Baja de empleado incorrecta" + e.getMessage());
+                    }
                     break;
                 }
                 case 7: {//Nueva factura
@@ -176,6 +202,15 @@ public class Main {
                     break;
                 }
                 case 9: {//Listado de empleados
+                    System.out.println("LISTADO DE EMPLEADOS");
+                    System.out.println("--------------------");
+                    for(Empleado empleado : empleados){
+                        System.out.printf("DNI: %s NOMBRE: %s TELEFONO: %s PUESTO: %s\n",
+                                empleado.getDni(),
+                                empleado.getNombre(),
+                                empleado.getTelefono(),
+                                empleado.getPuesto());
+                    }
                     break;
                 }
                 case 10: {//Listado de Videojuegos
