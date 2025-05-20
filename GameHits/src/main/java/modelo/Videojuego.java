@@ -7,7 +7,7 @@ public class Videojuego {
     private double precio;
     private tipoJuego tipo;
 
-    private enum tipoJuego {NUEVO, SEGMANO;}
+    public enum tipoJuego {NUEVO, SEGMANO;}
 
     public Videojuego(String id) {
         this.id = id;

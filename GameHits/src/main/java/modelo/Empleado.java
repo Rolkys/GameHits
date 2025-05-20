@@ -13,8 +13,9 @@ public class Empleado extends Persona {
         this.puesto = "";
     }
 
-    public Empleado(String nombre, String dni, String telefono, String puesto) {
-        super(nombre, dni, telefono);
+
+    public Empleado(String dni, String nombre, String telefono, String puesto) {
+        super(dni, nombre, telefono);
         this.puesto = puesto;
     }
 
@@ -25,5 +26,7 @@ public class Empleado extends Persona {
     public void setPuesto(String puesto) {
         this.puesto = puesto;
     }
+
+
 
 }
