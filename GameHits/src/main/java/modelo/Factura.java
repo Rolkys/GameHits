@@ -86,7 +86,7 @@ public class Factura {
     }
 
     public void setTotal(double total) {
-        this.total = total;
+        this.total = this.total + total;
     }
 
     public double calcularTotalU(Factura factura) {

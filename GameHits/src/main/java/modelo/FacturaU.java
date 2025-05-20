@@ -93,8 +93,8 @@ public class FacturaU extends Factura {
         try {
             Cliente clientetmp = new Cliente();
             Empleado empleadotmp = new Empleado();
-            clientetmp.setDni(super.getDniCliente());
-            empleadotmp.setDni(super.getDniEmpleado());
+            clientetmp.setDni(getDniCliente());
+            empleadotmp.setDni(getDniEmpleado());
 
             if (!clientetmp.existeCliente(clientes)) {
                 throw new Exception("El cliente no existe");

@@ -102,4 +102,12 @@ public class LineaFactura {
         }
         return nombre;
     }
+    public Videojuego getJuego(ArrayList<Videojuego> videojuegos) {
+        for (Videojuego vj: videojuegos){
+            if (vj.getId().equals(idJuego)){
+                return vj;
+            }
+        }
+        return null;
+    }
 }
