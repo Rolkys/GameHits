@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Videojuego {
     private String id; //Se puede usar el titulo como PK pq no suele haber 2 juegos que se llamen igual XDD
     private String titulo;
@@ -8,6 +10,14 @@ public class Videojuego {
     private tipoJuego tipo;
 
     public enum tipoJuego {NUEVO, SEGMANO;}
+
+    public Videojuego() {
+        id = "";
+        titulo = "";
+        categoria = "";
+        precio = 0;
+        tipo = null;
+    }
 
     public Videojuego(String id) {
         this.id = id;
@@ -64,4 +74,42 @@ public class Videojuego {
     public void setTipo(tipoJuego tipo) {
         this.tipo = tipo;
     }
+
+    public void setTipo(int op) throws Exception {
+        if (op == 1) {
+            tipo = tipoJuego.NUEVO;
+        } else if (op == 2) {
+            tipo = tipoJuego.SEGMANO;
+        } else {
+            throw new Exception("Error en setTipo");
+        }
+    }
+
+    /*METODOS*/
+    public boolean existeJuego(ArrayList<Videojuego> videojuegos) {
+        for (Videojuego vj : videojuegos) {
+            if (vj.getId().equals(this.id)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void altaJuego(ArrayList<Videojuego> videojuegos) throws Exception {
+        if (existeJuego(videojuegos)) throw new Exception("MI BOMBO");
+        try{
+            videojuegos.add(this);
+            return;
+        }catch (Exception e){
+            throw new Exception("Error en alta juego");
+        }
+    }
+
+    public void bajaJuego(ArrayList<Videojuego> videojuegos)throws Exception{
+        if (!existeJuego(videojuegos)) throw new Exception("MI BOMBO");
+
+        videojuegos.remove(id);
+        return;
+    }
+
 }

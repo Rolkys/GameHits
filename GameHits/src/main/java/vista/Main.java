@@ -1,5 +1,10 @@
 package vista;
 
+import modelo.Cliente;
+import modelo.Empleado;
+import modelo.Videojuego;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -29,7 +34,88 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Has sido bareboneado");
-        Auxiliar.preCargaDatos();
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        ArrayList<Empleado> empleados = new ArrayList<>();
+        ArrayList<Videojuego> videojuegos = new ArrayList<>();
+        Auxiliar.preCargaDatos(empleados,clientes,videojuegos);
+        int op = 0;
+        do {
+            op = mostrarMenu();
+            switch (op) {
+                case 1: { //Alta cliente
+                    break;
+                }
+                case 2: {//Baja Cliente
+                    break;
+                }
+                case 3: {//Alta Videojuego
+                    Videojuego juego = new Videojuego();
+                    try{
+                        System.out.print("Introduce el id del Videojuego: ");
+                        juego.setId(sc.next());
+                        System.out.print("Introduce el titulo del Videojuego: ");
+                        juego.setTitulo(sc.next());
+                        System.out.print("Introduce la categoria del Videojuego: ");
+                        juego.setCategoria(sc.next());
+                        System.out.print("Introduce el precio del videojuego: ");
+                        juego.setPrecio(sc.nextDouble());
+                        System.out.print("Introduce el tipo de videojuego nuevo(1)Segunda mano(2): ");
+                        juego.setTipo(sc.nextInt());
+
+                        juego.altaJuego(videojuegos);
+                        System.out.println("Alta correcta ID:"+juego.getId());
+                    }catch(Exception e){
+                        System.out.println("Alta incorrecta");
+                    }
+                    break;
+                }
+                case 4: {//Baja Videojuego
+                    Videojuego juego = new Videojuego();
+                    System.out.print("Introduce el id del Videojuego: ");
+                    juego.setId(sc.next());
+                    try{
+                        juego.bajaJuego(videojuegos);
+                    }catch(Exception e){
+                        System.out.println("Baja incorrecta");
+                    }
+                    break;
+                }
+                case 5: {//Alta empleado
+                    break;
+                }
+                case 6: {//Baja empleado
+                    break;
+                }
+                case 7: {//Nueva factura
+                    break;
+                }
+                case 8: {//Listado de clientes
+                    break;
+                }
+                case 9: {//Listado de empleados
+                    break;
+                }
+                case 10: {//Listado de Videojuegos
+                    for (Videojuego vj : videojuegos){
+                        System.out.printf("ID: %s TITULO: %s CATEGORIA: %s PRECIO: %.2f TIPO: %s\n",
+                                vj.getId(),
+                                vj.getTitulo(),
+                                vj.getCategoria(),
+                                vj.getPrecio(),
+                                vj.getTipo());
+                    }
+                    break;
+                }
+                case 11: {//Listado de Facturas
+                    break;
+                }
+                case 0:
+                    System.out.println("Agustin apruebanos");
+                    break;
+            }
+        } while (op != 0);
+
     }
 
 }
