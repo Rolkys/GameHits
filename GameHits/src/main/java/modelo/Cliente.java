@@ -17,9 +17,9 @@ public class Cliente  {
 
     public Cliente(String dni) {
         this.dni = dni;
-        this.nombre = "";
-        this.telefono = "";
-        this.gamePoints = 0;
+        nombre = "";
+        telefono = "";
+        gamePoints = 0;
     }
 
     public Cliente(String dni, String nombre, String telefono, int gamePoints) {

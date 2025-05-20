@@ -7,18 +7,24 @@ public class Empleado  {
     private String telefono;
 
     public Empleado() {
-
+        dni = "";
+        nombre = "";
+        telefono ="";
         puesto = "";
     }
 
     public Empleado(String dni) {
-
-        this.puesto = "";
+        this.dni = dni;
+        nombre = "";
+        telefono ="";
+        puesto = "";
     }
 
 
     public Empleado(String dni, String nombre, String telefono, String puesto) {
-
+        this.dni = dni;
+        this.nombre = nombre;
+        this.telefono = telefono;
         this.puesto = puesto;
     }
 
