@@ -1,3 +1,13 @@
+/**
+ *
+ *  Proyecto gestion de una tienda de videojuegos</br>
+ *
+ *
+ * @author Raúl Marín García y José Valero Fernández
+ * @version 1.5.1
+ * @since 20/05/2025
+ *
+ */
 package vista;
 
 import modelo.Cliente;
@@ -10,6 +20,12 @@ import java.util.Scanner;
 
 public class Main {
     //Easter Egg opcion 69 = a borrar todos los puntos a los clientes
+
+    /**
+     * Muestra un menu de opciones
+     *
+     * @return Opción seleccionado
+     */
     private static int mostrarMenu() {
         Scanner sc = new Scanner(System.in);
         System.out.println("MENU");
@@ -33,6 +49,11 @@ public class Main {
         return op;
     }
 
+    /**
+     * Metodo principal del proyecto
+     *
+     * @param args Argumentos desde consola opcionales
+     */
     public static void main(String[] args) {
         System.out.println("Has sido bareboneado");
         Scanner sc = new Scanner(System.in);
