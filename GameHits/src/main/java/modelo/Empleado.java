@@ -1,6 +1,8 @@
 package modelo;
 
-public class Empleado  {
+import java.util.ArrayList;
+
+public class Empleado {
     protected String puesto;
     private String nombre;
     private String dni;
@@ -9,14 +11,14 @@ public class Empleado  {
     public Empleado() {
         dni = "";
         nombre = "";
-        telefono ="";
+        telefono = "";
         puesto = "";
     }
 
     public Empleado(String dni) {
         this.dni = dni;
         nombre = "";
-        telefono ="";
+        telefono = "";
         puesto = "";
     }
 
@@ -58,5 +60,37 @@ public class Empleado  {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    public boolean existeEmpleado(ArrayList<Empleado> empleados) {
+        for (Empleado empleado : empleados) {
+            if (empleado.dni.equals(this.dni)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void altaEmpleado(ArrayList<Empleado> empleados) throws Exception {
+        if (existeEmpleado(empleados)) throw new Exception("MI BOMBO");
+        try {
+            empleados.add(this);
+            return;
+        } catch (Exception e) {
+            throw new Exception("Error en alta juego");
+        }
+    }
+
+    public void bajaEmpleado(ArrayList<Empleado> empleados) throws Exception {
+        if (!existeEmpleado(empleados)) throw new Exception("MI BOMBO");
+
+        for (Empleado empleado : empleados) {
+            if (empleado.getDni().equals(dni)) {
+                empleados.remove(empleado);
+                return;
+            }
+
+
+        }
     }
 }

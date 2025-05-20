@@ -99,7 +99,7 @@ public class Videojuego {
     /*METODOS*/
     public boolean existeJuego(ArrayList<Videojuego> videojuegos) {
         for (Videojuego vj : videojuegos) {
-            if (vj.getId().equals(this.id)){
+            if (vj.getId().equals(this.id)) {
                 return true;
             }
         }
@@ -108,19 +108,24 @@ public class Videojuego {
 
     public void altaJuego(ArrayList<Videojuego> videojuegos) throws Exception {
         if (existeJuego(videojuegos)) throw new Exception("MI BOMBO");
-        try{
+        try {
             videojuegos.add(this);
             return;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Error en alta juego");
         }
     }
 
-    public void bajaJuego(ArrayList<Videojuego> videojuegos)throws Exception{
+    public void bajaJuego(ArrayList<Videojuego> videojuegos) throws Exception {
         if (!existeJuego(videojuegos)) throw new Exception("MI BOMBO");
 
-        videojuegos.remove(id);
-        return;
-    }
+        for (Videojuego videojuego : videojuegos) {
+            if (videojuego.getId().equals(id)) {
+                videojuegos.remove(videojuego);
 
+                return;
+            }
+
+        }
+    }
 }

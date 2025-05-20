@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Cliente  {
+public class Cliente {
     protected int gamePoints;
     private String nombre;
     private String dni;
@@ -62,29 +62,34 @@ public class Cliente  {
     }
 
     public boolean existeCliente(ArrayList<Cliente> clientes) {
-        for (Cliente c : clientes) {
-            if (c.dni.equals(this.dni)){
+        for (Cliente cliente : clientes) {
+            if (cliente.dni.equals(this.dni)) {
                 return true;
             }
         }
         return false;
     }
+
     public void altaCliente(ArrayList<Cliente> clientes) throws Exception {
         if (existeCliente(clientes)) throw new Exception("MI BOMBO");
-        try{
+        try {
             clientes.add(this);
             return;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("Error en alta juego");
         }
     }
 
-    public void bajaCliente(ArrayList<Cliente> clientes)throws Exception{
+    public void bajaCliente(ArrayList<Cliente> clientes) throws Exception {
         if (!existeCliente(clientes)) throw new Exception("MI BOMBO");
 
-        clientes.remove(dni);
-        return;
+        for (Cliente cliente : clientes) {
+            if (cliente.getDni().equals(dni)) {
+                clientes.remove(cliente);
+                return;
+            }
+
+
+        }
     }
-
-
 }
