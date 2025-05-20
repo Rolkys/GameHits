@@ -96,8 +96,9 @@ public class Main {
                     juego.setId(sc.next());
                     try {
                         juego.bajaJuego(videojuegos);
+                        System.out.println("Baja de videojuego correcta");
                     } catch (Exception e) {
-                        System.out.println("Baja incorrecta");
+                        System.out.println("Baja de videojuego incorrecta");
                     }
                     break;
                 }
@@ -203,7 +204,7 @@ public class Main {
                                     factura.getIva(),
                                     factura.getTotal(),
                                     ((FacturaU) factura).getCantidad(),
-                                    ((FacturaU) factura).obtenerJuego(videojuegos));
+                                    ((FacturaU) factura).obtenerJuego(videojuegos).getTitulo());
                         } else if (factura instanceof FacturaL) {
                             System.out.printf("ID: %s FECHA: %s DNI CLIENTE: %s DNI EMPLEADO: %s IVA: %d TOTAL: %.2f\n",
                                     factura.getId(),
@@ -213,9 +214,14 @@ public class Main {
                                     factura.getIva(),
                                     factura.getTotal());
                             for (LineaFactura linea : ((FacturaL) factura).getLineas()){
+                                Videojuego v = linea.getJuego(videojuegos);
                                 System.out.printf("\tID: %s TITULO: %s CATEGORIA: %s TIPO: %s CANTIDAD: %d SUBTOTAL: %.2f\n",
-                                        linea.getJuego(videojuegos).getId(),
-                                        linea.getNombre(videojuegos));
+                                        v.getId(),
+                                        v.getTitulo(),
+                                        v.getCategoria(),
+                                        v.getTipoString(),
+                                        linea.getCantidad(),
+                                        linea.getSubtotal());
                             }
                         }
                     }

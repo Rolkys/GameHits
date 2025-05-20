@@ -82,6 +82,10 @@ public class Videojuego {
         return tipo;
     }
 
+    public String getTipoString() {
+        return tipo.toString();
+    }
+
     public void setTipo(tipoJuego tipo) {
         this.tipo = tipo;
     }
