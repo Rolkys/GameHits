@@ -1,3 +1,14 @@
+/**
+ *
+ *  Proyecto gestion de una tienda de videojuegos</br>
+ *
+ *
+ * @author Raúl Marín García y José Valero Fernández
+ * @version 1.5.2
+ * @since 20/05/2025
+ *
+ */
+
 package modelo;
 
 import java.lang.reflect.Array;

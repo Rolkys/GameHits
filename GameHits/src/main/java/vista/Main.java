@@ -9,10 +9,8 @@ package vista;
 
 import modelo.*;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Formattable;
 import java.util.Scanner;
 
 public class Main {
