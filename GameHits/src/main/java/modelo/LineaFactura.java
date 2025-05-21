@@ -4,7 +4,7 @@
  *
  *
  * @author Raúl Marín García y José Valero Fernández
- * @version 1.5.2
+ * @version 2.0
  * @since 20/05/2025
  *
  */

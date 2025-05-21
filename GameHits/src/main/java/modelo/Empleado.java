@@ -2,7 +2,7 @@
  * Proyecto gestion de una tienda de videojuegos</br>
  *
  * @author Raúl Marín García y José Valero Fernández
- * @version 1.5.1
+ * @version 2.0
  * @since 20/05/2025
  */
 
