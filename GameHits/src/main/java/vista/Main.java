@@ -171,7 +171,7 @@ public class Main {
                     int cont = 0;
                     char c = ' ';
                     if (of == 1) {
-                        factura = new FacturaU();
+                        factura = new FacturaUnitaria();
                         factura.setFecha(LocalDate.now());
                         factura.setDniCliente(dniC);
                         factura.setDniEmpleado(dniE);
@@ -180,16 +180,16 @@ public class Main {
                         String id = sc.next();
                         System.out.print("Introduce la cantidad: ");
                         int cant = sc.nextInt();
-                        ((FacturaU) factura).setCantidad(cant);
-                        ((FacturaU) factura).setCodigoProducto(id);
+                        ((FacturaUnitaria) factura).setCantidad(cant);
+                        ((FacturaUnitaria) factura).setCodigoProducto(id);
                         try {
-                            ((FacturaU) factura).altaFacturas(clientes, facturas, videojuegos, empleados);
+                            ((FacturaUnitaria) factura).altaFacturas(clientes, facturas, videojuegos, empleados);
                             System.out.println("Alta de factura correcta ID:"+factura.getId());
                         }catch(Exception e){
                             System.out.println("Alta de factura incorrecta"+e.getMessage());
                         }
                     } else if (of == 2) {
-                        factura = new FacturaL();
+                        factura = new FacturaLinea();
                         factura.setFecha(LocalDate.now());
                         factura.setDniCliente(dniC);
                         factura.setDniEmpleado(dniE);
@@ -202,7 +202,7 @@ public class Main {
                             int cant = sc.nextInt();
                             linea.setCantidad(cant);
                             linea.setIdJuego(id);
-                            linea.altaLinea(((FacturaL) factura).getLineas());
+                            linea.altaLinea(((FacturaLinea) factura).getLineas());
                             linea.calcularSubTotal(videojuegos);
                             factura.setTotal(linea.getSubtotal());
                             System.out.print("Quieres introducir otra linea de factura (s/n): ");
@@ -210,7 +210,7 @@ public class Main {
                         } while (c != 'n');
 
                         try {
-                            ((FacturaL) factura).altaFacturas(clientes, facturas, videojuegos, empleados);
+                            ((FacturaLinea) factura).altaFacturas(clientes, facturas, videojuegos, empleados);
                             System.out.println("Alta de factura correcta ID:"+factura.getId());
                         }catch(Exception e){
                             System.out.println("Alta de factura incorrecta"+e.getMessage());
@@ -262,7 +262,7 @@ public class Main {
                     System.out.println("LISTADO DE FACTURAS");
                     System.out.println("-------------------");
                     for (Factura factura : facturas){
-                        if (factura instanceof FacturaU){
+                        if (factura instanceof FacturaUnitaria){
                             System.out.printf("ID: %s FECHA: %s DNI CLIENTE: %s DNI EMPLEADO: %s IVA: %d TOTAL: %.2f CANTIDAD: %d VIDEOJUEGO: %s\n",
                                     factura.getId(),
                                     factura.getFecha(),
@@ -270,9 +270,9 @@ public class Main {
                                     factura.getDniEmpleado(),
                                     factura.getIva(),
                                     factura.getTotal(),
-                                    ((FacturaU) factura).getCantidad(),
-                                    ((FacturaU) factura).obtenerJuego(videojuegos).getTitulo());
-                        } else if (factura instanceof FacturaL) {
+                                    ((FacturaUnitaria) factura).getCantidad(),
+                                    ((FacturaUnitaria) factura).obtenerJuego(videojuegos).getTitulo());
+                        } else if (factura instanceof FacturaLinea) {
                             System.out.printf("ID: %s FECHA: %s DNI CLIENTE: %s DNI EMPLEADO: %s IVA: %d TOTAL: %.2f\n",
                                     factura.getId(),
                                     factura.getFecha(),
@@ -280,7 +280,7 @@ public class Main {
                                     factura.getDniEmpleado(),
                                     factura.getIva(),
                                     factura.getTotal());
-                            for (LineaFactura linea : ((FacturaL) factura).getLineas()){
+                            for (LineaFactura linea : ((FacturaLinea) factura).getLineas()){
                                 Videojuego videojuego = linea.getJuego(videojuegos);
                                 System.out.printf("\tID: %s TITULO: %s CATEGORIA: %s TIPO: %s CANTIDAD: %d SUBTOTAL: %.2f\n",
                                         videojuego.getId(),

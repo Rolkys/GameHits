@@ -13,19 +13,19 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class FacturaU extends Factura {
+public class FacturaUnitaria extends Factura {
     private String idJuego;
     private int cantidad;
     private double subtotal;
 
-    public FacturaU() {
+    public FacturaUnitaria() {
         super();
         idJuego = "";
         cantidad = 0;
         subtotal = 0;
     }
 
-    public FacturaU(String idJuego) {
+    public FacturaUnitaria(String idJuego) {
         super();
         this.idJuego = idJuego;
         this.cantidad = 0;

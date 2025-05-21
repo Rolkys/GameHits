@@ -90,7 +90,7 @@ public class Factura {
     }
 
     public double calcularTotalU(Factura factura) {
-        return ((FacturaU) factura).getSubtotal();
+        return ((FacturaUnitaria) factura).getSubtotal();
     }
 
     /**

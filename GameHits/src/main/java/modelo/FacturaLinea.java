@@ -13,15 +13,15 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class FacturaL extends Factura {
+public class FacturaLinea extends Factura {
     private ArrayList<LineaFactura> lineas;
 
-    public FacturaL() {
+    public FacturaLinea() {
         super();
         lineas = new ArrayList<>();
     }
 
-    public FacturaL(ArrayList<LineaFactura> lineas) {
+    public FacturaLinea(ArrayList<LineaFactura> lineas) {
         super();
         this.lineas = lineas;
     }
