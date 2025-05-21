@@ -92,6 +92,8 @@ public class Empleado {
     public void bajaEmpleado(ArrayList<Empleado> empleados) throws Exception {
         if (!existeEmpleado(empleados)) throw new Exception("MI BOMBO");
 
+        if(dni.equals("0")) throw new Exception("No se puede borrar el administrador!!!");
+
         for (Empleado empleado : empleados) {
             if (empleado.getDni().equals(dni)) {
                 empleados.remove(empleado);

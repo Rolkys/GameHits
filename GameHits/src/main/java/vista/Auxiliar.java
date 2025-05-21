@@ -29,7 +29,7 @@ public class Auxiliar {
 
         //2 empleados uno con dni "0" que seria el admin
 
-        empleados.add(new Empleado("0", "pepe", "111223344", "Admin"));
+        empleados.add(new Empleado("0", "Admin", "111223344", "Admin"));
         empleados.add(new Empleado("1", "manolo", "222334455", "empleado"));
 
         //2 clientes "Luciano" y "Vanesa"

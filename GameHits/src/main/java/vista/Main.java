@@ -153,7 +153,7 @@ public class Main {
                         empleado.bajaEmpleado(empleados);
                         System.out.println("Baja de empleado correcta");
                     }catch(Exception e){
-                        System.out.println("Baja de empleado incorrecta" + e.getMessage());
+                        System.out.println("Baja de empleado incorrecta \n" + e.getMessage());
                     }
                     break;
                 }
