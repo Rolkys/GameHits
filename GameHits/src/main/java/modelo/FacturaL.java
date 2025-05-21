@@ -59,6 +59,12 @@ public class FacturaL extends Factura {
             }
 
             total = super.calcularTotal(lineas);
+
+            for (Cliente c:clientes){
+                if (c.getDni().equals(dniCliente)){
+                    c.darPuntos( (int)total / 10);
+                }
+            }
             facturas.add(this);
         } catch (Exception e) {
             throw new Exception("Error en el alta de facturas\n" + e.getMessage());

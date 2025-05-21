@@ -72,6 +72,10 @@ public class Cliente {
         this.gamePoints = gamePoints;
     }
 
+    public void darPuntos(int gamePoints){
+        this.gamePoints = this.gamePoints + gamePoints;
+    }
+
     public boolean existeCliente(ArrayList<Cliente> clientes) {
         for (Cliente cliente : clientes) {
             if (cliente.dni.equals(this.dni)) {

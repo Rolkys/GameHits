@@ -294,6 +294,11 @@ public class Main {
                     }
                     break;
                 }
+                case 69:
+                    for (Cliente c:clientes){
+                        c.setGamePoints(0);
+                    }
+                    break;
                 case 0:
                     System.out.println("Agustin apruebanos");
                     break;

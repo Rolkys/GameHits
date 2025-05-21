@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class Factura {
     protected String id;
     private LocalDate fecha;
-    private String dniCliente;
-    private String dniEmpleado;
+    protected String dniCliente;
+    protected String dniEmpleado;
     protected int iva;
     protected double total;
 
